@@ -1,0 +1,25 @@
+<?php
+
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
+
+Route::get(' /', function () {
+    return view('welcome');
+});
+
+Route::get(' /test', function () {
+    return view('test');
+});
+// Route::get('/about/{name}',function ($name){
+//     // echo $name ;
+//     return view('about',['name'=>$name]); // pass in url
+   
+// });
+// Route::redirect('/test','/about');
+
+// Route::view('/test','test'); // Short hand notaion
+Right click on view for creating new blade file
+File name like this : test.blade.php 
+
+SAVE FILE LIKE THIS
+http://127.0.0.1:8000/ROUTE NAME/

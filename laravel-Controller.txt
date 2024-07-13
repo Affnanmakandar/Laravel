@@ -1,0 +1,66 @@
+Controller cmd line
+  php artisan make:controller UserController // name of controller ex UserController first letter should be capital
+The folder is inside app  http then controller 
+For this you should stop the php artisan serve using ctrl + c . 
+
+How to use it first you need to go to UserController file that you had created then
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    // Create function of any name inside this
+    function getUser(){
+        return "Affnan makandar";
+    }
+// you can call many functions as you can and change the name inside route
+}
+
+How to view this : 
+Solution :
+Go to web.php call this on upper side
+use App\Http\Controllers\UserController; // last one is your file name
+
+Then Route the function like this : 
+
+Route::get('user',[UserController::class , 'getUser']); 
+
+Explaination :
+
+user is path you give by your choice  then your file name and call class and at last your function name
+START THE PHP ARTISAN SERVER 
+AND CALL LIKE THIS IN WEB Browser :
+http://127.0.0.1:8000/user
+
+
+Multiple function calling
+inside web.php like this 
+ Route::get('Aboutuser',[UserController::class , 'AboutUser']);
+Route::get('user/{name}',[UserController::class , 'getUserName']); // on top
+
+// UserController.php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    //
+    function getUser(){
+        return "Affnan makandar";
+    }
+    function AboutUser(){
+        return "Developer";
+    }
+    // you can call name also
+    function getUserName($name){
+        return "The username is".$name;
+//and at last like this the file name you call on web browser : http://127.0.0.1:8000/user/affnan
+    }
+}

@@ -1,0 +1,58 @@
+<?php
+
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
+// Route::get('/about', function () {
+//     return view('about');
+// });
+Route::get('page/postssss', function () {
+    return view('post');
+})->name('mypost'); // it can easier
+
+// redirect
+Route::get('/test', function () {
+    return view('about');
+});
+Route::redirect('/about','/test',301); //301 is for permanent it is used for search engine search on google redirect codes wiki
+    // Route::get('/post', function () {
+    //     return view('post');
+    // });
+// Route::get('/post/firstpost', function () {
+//     return view('firstpost');
+// });
+// 2nd method
+// Route::view('/post','post');
+// 3rd method
+// Route::get('/hello', function () {
+//     return view('post');
+// });
+WE can call two parameters one at the same time
+example:
+Route::get('/about/post',function() {
+return view ('post');
+});
+// Multiple parameters
+// Route::get('/post/{id?}',function (string $id = null){
+// if($id){
+//     return "<h1> Post id :" .$id. "</h1>";
+// }else{
+//     return "<h1> Id not found </h1>";
+// }
+// });
+    // ? means optional
+
+// });
+// Laravel route constrains
+// Route::get('/post/{id}', function (string $id = null ){
+//     if($id){
+//         return "<h1> Post id :".$id."</h1>";
+//     }else{
+//         return "<h1> No id found :</h1>";
+//     }
+
+// })->whereNumber('id'); // only numeric value
+
